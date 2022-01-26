@@ -7,6 +7,8 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
+  const newObj = obj.name.trim()
+  return newObj
   // ✨ implement
 }
 
