@@ -217,8 +217,14 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
+  if (number % 2 === 0)
+  return true
+  else {
+    return false
+  }
   // ✨ implement
 }
+// console.log(isEvenNumberAsync(3))
 
 module.exports = {
   trimProperties,
