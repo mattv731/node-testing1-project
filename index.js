@@ -198,7 +198,7 @@ class Car {
     // ✨ implement
     const attempted = gallons + this.tank
     if (attempted > this.tankSize) {
-      return `tank only holds ${this.tankSize}`
+      return this.tank = this.tankSize
     } else if (gallons + this.tank > 0) {
       this.tank += gallons
       return this.tank * this.mpg
