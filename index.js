@@ -7,12 +7,16 @@
  * trimProperties({ name: '  jane  ' }) // returns a new object { name: 'jane' }
  */
 function trimProperties(obj) {
-  const newObj = { name: obj.name.trim()}
+  let newObj = {}
+  for (let prop in obj) {
+    newObj[prop] = obj[prop].trim()
+  }
   return newObj
   // ✨ implement
 }
-
-// console.log(trimProperties({name: "  martha   "}))
+// const test = {name: '     just me  ', foo: ' await a br', bar: 'aeing aid aa      ie'}
+// console.log(trimProperties(test))
+// console.log(test)
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -24,10 +28,12 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
- obj.name = obj.name.trim()
+ for (let prop in obj) {
+   obj[prop] = obj[prop].trim()
+ }
  return obj
 }
-// console.log(trimPropertiesMutation({name: '     just me  '}))
+// console.log(trimPropertiesMutation({name: '     just me  ', foo: ' await a br', bar: 'aeing aid aa      ie'}))
 /**
  * [Exercise 3] findLargestInteger finds the largest integer in an array of objects { integer: 1 }
  * @param {object[]} integers - an array of objects
@@ -53,7 +59,9 @@ class Counter {
    * [Exercise 4A] Counter creates a counter
    * @param {number} initialNumber - the initial state of the count
    */
+
   constructor(initialNumber) {
+    this.initialNumber = initialNumber
     this.num = initialNumber
     // ✨ initialize whatever properties are needed
   }
@@ -71,21 +79,24 @@ class Counter {
    * counter.countDown() // returns 0
    */
   countDown() {
-    if (this.num > 0) {
+    if (this.num > 0 && this.num !== this.initialNumber ) {
       this.num -= 1
+      return this.num + 1
+    } else if (this.num === this.initialNumber) {
+      this.num -= 1
+      return this.initialNumber
     } else {
       return 0
     }
-    return this.num
     // ✨ implement
   }
 }
-/** const counter = new Counter(53)
+//  const counter = new Counter(3)
 // console.log(counter.countDown())
 // console.log(counter.countDown())
 // console.log(counter.countDown())
 // console.log(counter.countDown())
- */
+
 class Seasons {
   /**
    * [Exercise 5A] Seasons creates a seasons object
